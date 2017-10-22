@@ -33,18 +33,40 @@
         </div>
       </form>
     </div>
-    <div id="book_list">
-      <div class="book_item">
-        <div class="book_image"></div>
-        <div class="book_detail">
-          <div class="book_title"></div>
-          <div class="book_status"></div>
-          <div class="book_status"></div>
-          <div class="book_status"></div>
-          <div class="book_delete"></div>
+    <div class="wrapper">
+      <div id="main">
+        <div id="book_list" class="clearfix">
+          <div class="book_item">
+            <div class="book_image">
+              <img src="./images/item_book_1.jpg" alt="">
+            </div>
+            <div class="book_detail">
+              <div class="book_title">
+                タイトル1
+              </div>
+              <form action="bookshelf_index.php" method="post">
+                <div class="book_status unread active">
+                  <input type="submit" name="submit_book_unread" value="未読">
+                </div>
+                <div class="book_status reading">
+                  <input type="submit" name="submit_book_reading" value="読書中">
+                </div>
+                <div class="book_status finished">
+                  <input type="submit" name="submit_book_finished" value="既読">
+                </div>
+              </form>
+              <form action="bookshelf_index.php" method="post">
+                <div class="book_delete">
+                  <input type="submit" name="submit_book_delete" value="削除する"><img src="./images/icon_trash.png" alt="icon trash">
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <footer></footer>
+    <footer>
+      <small>© 2017 Bookshelf.</small>
+    </footer>
   </body>
 </html>
