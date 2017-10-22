@@ -10,13 +10,12 @@
   <head>
     <meta charset="utf-8">
     <title>Bookshelf | ほんだな</title>
-    <link rel="stylesheet" href="bookshelf.css">
   </head>
   <body>
   <?php 
     // フォームデータ送受信確認コード（本番時削除）
     print '<div style="background-color: skyblue;">';
-    print '<p>動作確認用:</p>';
+    print '<p>デバッグ用:</p>';
     var_dump($_POST['book_title']);
     print '</div>';
   ?>
