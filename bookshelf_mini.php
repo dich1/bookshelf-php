@@ -18,14 +18,31 @@
   $charset = 'utf8';
   mysqli_set_charset($database, $charset);
 
-  // SQL処理
+  ////// ここからSQL処理
+  // データが送信されたら、DBに保存
+  if ($_POST['book_title']) {
+    ////プリペアドステートメント
+    // SQL文を準備する
+    $sql = 'INSERT INTO books (book_title) VALUES(?)';
+    // SQLインジェクション対策
+    $statement = mysqli_prepare($database, $sql);
+    // クエスチョンパラメータに変数をバインドする
+    // 第1引数：ステートメントオブジェクト
+    // 第2引数：バインド変数の型(string)
+    // 第3引数：パラメータに渡す値
+    mysqli_stmt_bind_param($statement, 's', $_POST['book_title']);
+    // SQL文を実行
+    mysqli_stmt_execute($statement);
+    // SQL文を破棄
+    mysqli_stmt_close($statement);
+  }
+
   // 最新のものから登録した本の情報を表示する
   $sql = 'SELECT * FROM books ORDER BY created_at DESC';
   $result = mysqli_query($database, $sql);
 
   // 切断
   mysqli_close($database);
-
 ?>
 
 <!DOCTYPE html>
