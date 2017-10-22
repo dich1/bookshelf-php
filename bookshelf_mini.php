@@ -5,6 +5,13 @@
     <title>Bookshelf | ほんだな</title>
   </head>
   <body>
+  <?php 
+    // フォームデータ送受信確認コード（本番時削除）
+    print '<div style="background-color: skyblue;">';
+    print '<p>動作確認用:</p>';
+    var_dump($_POST['book_title']);
+    print '</div>';
+  ?>
     <a href="bookshelf_mini.php"><h1>Bookshelf</h1></a>
     <h2>書籍登録フォーム</h2>
     <form action="bookshelf_mini.php" method="POST">
@@ -13,9 +20,9 @@
     </form>
     <h2>登録書籍一覧</h2>
     <ul>
-        <li>書籍タイトル1</li>
-        <li>書籍タイトル2</li>
-        <li>書籍タイトル3</li>
+      <?php // 登録された書籍タイトルの数だけループ ?>
+        <li><?php // print 書籍タイトル; ?></li>
+      <?php // ループ 終了 ?>
     </ul>
   </body>
 </html>
