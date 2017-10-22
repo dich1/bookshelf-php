@@ -1,48 +1,8 @@
-<?php
-  // 接続に必要な情報を用意する
-  $host = 'localhost';
-  $username = 'root';
-  $password = 'root';
-  $db_name = 'bookshelf_mini';
+<?php 
+  require_once('config.php');
+  require_once('functions.php');
 
-  // 接続
-  $database = mysqli_connect($host, $username, $password, $db_name);
-
-  // 失敗処理
-  if ($database == false) {
-    // mysqlエラーコード、エラー内容
-    die('Connect Error' . mysqli_connect_errno() . ')' . mysqli_connect_error());
-  }
-
-  // 文字コード設定
-  $charset = 'utf8';
-  mysqli_set_charset($database, $charset);
-
-  ////// ここからSQL処理
-  // データが送信されたら、DBに保存
-  if ($_POST['book_title']) {
-    ////プリペアドステートメント
-    // SQL文を準備する
-    $sql = 'INSERT INTO books (book_title) VALUES(?)';
-    // SQLインジェクション対策
-    $statement = mysqli_prepare($database, $sql);
-    // クエスチョンパラメータに変数をバインドする
-    // 第1引数：ステートメントオブジェクト
-    // 第2引数：バインド変数の型(string)
-    // 第3引数：パラメータに渡す値
-    mysqli_stmt_bind_param($statement, 's', $_POST['book_title']);
-    // SQL文を実行
-    mysqli_stmt_execute($statement);
-    // SQL文を破棄
-    mysqli_stmt_close($statement);
-  }
-
-  // 最新のものから登録した本の情報を表示する
-  $sql = 'SELECT * FROM books ORDER BY created_at DESC';
-  $result = mysqli_query($database, $sql);
-
-  // 切断
-  mysqli_close($database);
+  $records = index();
 ?>
 
 <!DOCTYPE html>
@@ -68,20 +28,13 @@
     </form>
     <h2>登録書籍一覧</h2>
     <ul>
-      <?php // 登録された書籍タイトルの数だけ出力
-        if ($result) {
-          // レコードを1件取り出す
-          // 全て取り出すとfalseが返る
-          while ($record = mysqli_fetch_assoc($result)) {
-            $book_title = $record['book_title'];
-      ?>
-            <li><?php print $book_title; ?></li>
-      <?php
-          }
-          // 結果を破棄
-          mysqli_free_result($result);
-        }
-      ?>
+      <!-- 登録された書籍タイトルの数だけ出力  -->
+      <?php foreach($records as $value): ?>
+        <li>
+          <!-- XSS対策 -->
+          <?php print h($value); ?>
+        </li>
+      <?php endforeach; ?>     
     </ul>
   </body>
 </html>
