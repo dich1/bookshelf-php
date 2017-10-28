@@ -34,7 +34,31 @@ mysql_secure_installation
 ```
 文字コード設定
 http://qiita.com/YusukeHigaki/items/2cab311d2a559a543e3a
-- 動作確認
-/Applications/XAMPP/xamppfiles/htdocs配下に開発するファイルを置く
-ブラウザに
+
+## DB構築
+- データベース、テーブル作成
+```
+mysql -u **** -p ****
+CREATE DATABASE bookshelf_mini;
+USE bookshelf_mini;
+CREATE TABLE bookshelf_mini.books (
+    /* 本のタイトル、作成日時 */
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    book_title VARCHAR(100),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+```
+- テストデータ作成
+```
+INSERT INTO bookshelf_mini.books (book_title) VALUES("テスト1");
+INSERT INTO bookshelf_mini.books (book_title) VALUES("テスト2");
+INSERT INTO bookshelf_mini.books (book_title) VALUES("テスト3");
+SELECT * FROM bookshelf_mini.books;
+```
+
+
+## 動作確認
+- /Applications/XAMPP/xamppfiles/htdocs配下に開発するファイルを置く
+- 以下をアドレスバーに入力しアクセス
 localhost/置いたファイル
+
