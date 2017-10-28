@@ -1,8 +1,15 @@
 <?php 
   require_once('config.php');
-  require_once('functions.php');
+  require_once('Book.php');
 
-  $records = index();
+  $db = new Book();
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $db->regist($_POST['book_title']);
+    header('Location:http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+  }
+  $records = $db->index();
+
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +17,7 @@
   <head>
     <meta charset="utf-8">
     <title>Bookshelf | ほんだな</title>
+    <link rel="stylesheet" href="bookshelf.css">
   </head>
   <body>
   <?php 
@@ -28,10 +36,10 @@
     <h2>登録書籍一覧</h2>
     <ul>
       <!-- 登録された書籍タイトルの数だけ出力  -->
-      <?php foreach($records as $value): ?>
+      <?php foreach($records['result'] as $value): ?>
         <li>
           <!-- XSS対策 -->
-          <?php print h($value); ?>
+          <?= $value['book_title']; ?>
         </li>
       <?php endforeach; ?>     
     </ul>
