@@ -74,7 +74,6 @@ SELECT * FROM bookshelf_mini.books;
 
 
 ## 動作確認
-- /Applications/XAMPP/xamppfiles/htdocs配下に開発するファイルを置く
 - 以下をアドレスバーに入力しアクセス
 ```
 localhost/bookshelf
