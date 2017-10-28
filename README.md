@@ -35,6 +35,22 @@ mysql_secure_installation
 文字コード設定
 http://qiita.com/YusukeHigaki/items/2cab311d2a559a543e3a
 
+- ローカルにディレクトリ作成
+```
+cd ディレクトリを作成する位置に移動
+mkdir bookshelf
+```
+
+- ソース取り込み
+```
+git clone https://github.com/dich1/bookshelf.git
+```
+
+- シンボリックリンクを貼る
+```
+ln -s $(pwd) /Applications/XAMPP/htdocs/bookshelf
+```
+
 ## DB構築
 - データベース、テーブル作成
 ```
@@ -61,6 +77,6 @@ SELECT * FROM bookshelf_mini.books;
 - /Applications/XAMPP/xamppfiles/htdocs配下に開発するファイルを置く
 - 以下をアドレスバーに入力しアクセス
 ```
-localhost/置いたファイル
+localhost/bookshelf
 ```
 
