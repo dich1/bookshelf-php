@@ -12,7 +12,7 @@
           <a href="./bookshelf_index.php"><img src="./images/logo.png" alt="Bookshelf"></a>
         </div>
         <nav>
-          <a href="./bookshelf_form.php"><img src="./images/icon_plus.png" alt="">書籍登録</a>
+          <a href="./form.php"><img src="./images/icon_plus.png" alt="">書籍登録</a>
         </nav>
       </div>
     </header>
