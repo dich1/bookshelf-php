@@ -22,14 +22,15 @@
   <body>
   <?php 
     // フォームデータ送受信確認コード（本番時削除）
+    // リダイレクト処理をコメントアウトする
     print '<div style="background-color: skyblue;">';
     print '<p>デバッグ用:</p>';
     var_dump($_POST['book_title']);
     print '</div>';
   ?>
-    <a href="bookshelf_mini.php"><h1>Bookshelf</h1></a>
+    <a href="index.php"><h1>Bookshelf</h1></a>
     <h2>書籍登録フォーム</h2>
-    <form action="bookshelf_mini.php" method="POST">
+    <form action="index.php" method="POST">
       <input type="text" name="book_title" placeholder="書籍タイトルを入力" required>
       <input type="submit" name="submit_add_book" value="登録">  
     </form>
