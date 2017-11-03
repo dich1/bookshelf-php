@@ -9,24 +9,24 @@
     <header>
       <div id="header">
         <div id="logo">
-          <a href="./bookshelf_index.php"><img src="./images/logo.png" alt="Bookshelf"></a>
+          <a href="./index.php"><img src="./images/logo.png" alt="Bookshelf"></a>
         </div>
         <nav>
-          <a href="./bookshelf_form.php"><img src="./images/icon_plus.png" alt="">書籍登録</a>
+          <a href="./form.php"><img src="./images/icon_plus.png" alt="">書籍登録</a>
         </nav>
       </div>
     </header>
     <div class="wrapper">
       <div id="main">
-        <form action="bookshelf_index.php" method="post" class="form_book" enctype="multipart/form-data">
+        <form action="index.php" method="POST" class="form_book" enctype="multipart/form-data" required>
           <div class="book_title">
-            <input type="text" name="add_book_title" placeholder="書籍タイトルを入力">
+            <input type="text" name="book_title" placeholder="書籍タイトルを入力">
           </div>
           <div class="book_image">
-            <input type="file" name="add_book_image">
+            <input type="file" name="book_image">
           </div>
           <div class="book_submit">
-            <input type="submit" name="submit_add_book" value="">
+            <input type="submit" name="submit_add_book" value="登録">
           </div>
         </form>
       </div>
