@@ -9,7 +9,7 @@
     <header>
       <div id="header">
         <div id="logo">
-          <a href="./bookshelf_index.php"><img src="./images/logo.png" alt="Bookshelf"></a>
+          <a href="./index.php"><img src="./images/logo.png" alt="Bookshelf"></a>
         </div>
         <nav>
           <a href="./form.php"><img src="./images/icon_plus.png" alt="">書籍登録</a>
@@ -18,7 +18,7 @@
     </header>
     <div id="cover">
       <h1 id="cover_title">ほんだな</h1>
-      <form action="bookshelf_index.php" method="post">
+      <form action="index.php" method="post">
         <div class="book_status unread active">
           <input type="submit" name="submit_only_unread" value="未読">
           <div class="book_count"></div>
@@ -44,7 +44,7 @@
               <div class="book_title">
                 EFFECTIVE JAVA 第2版 (The Java Series)
               </div>
-              <form action="bookshelf_index.php" method="post">
+              <form action="index.php" method="post">
                 <div class="book_status unread">
                   <input type="submit" name="submit_book_unread" value="未読">
                 </div>
@@ -55,7 +55,7 @@
                   <input type="submit" name="submit_book_finished" value="既読">
                 </div>
               </form>
-              <form action="bookshelf_index.php" method="post">
+              <form action="index.php" method="post">
                 <div class="book_delete">
                   <input type="submit" name="submit_book_delete" value="削除する"><img src="./images/icon_trash.png" alt="icon trash">
                 </div>
@@ -70,7 +70,7 @@
               <div class="book_title">
                 Webを支える技術 -HTTP、URI、HTML、そしてREST (WEB+DB PRESS plus)
               </div>
-              <form action="bookshelf_index.php" method="post">
+              <form action="index.php" method="post">
                 <div class="book_status unread">
                   <input type="submit" name="submit_book_unread" value="未読">
                 </div>
@@ -81,7 +81,7 @@
                   <input type="submit" name="submit_book_finished" value="既読">
                 </div>
               </form>
-              <form action="bookshelf_index.php" method="post">
+              <form action="index.php" method="post">
                 <div class="book_delete">
                   <input type="submit" name="submit_book_delete" value="削除する"><img src="./images/icon_trash.png" alt="icon trash">
                 </div>
@@ -96,7 +96,7 @@
               <div class="book_title">
                 体系的に学ぶ 安全なWebアプリケーションの作り方 脆弱性が生まれる原理と対策の実践
               </div>
-              <form action="bookshelf_index.php" method="post">
+              <form action="index.php" method="post">
                 <div class="book_status unread active">
                   <input type="submit" name="submit_book_unread" value="未読">
                 </div>
@@ -107,7 +107,7 @@
                   <input type="submit" name="submit_book_finished" value="既読">
                 </div>
               </form>
-              <form action="bookshelf_index.php" method="post">
+              <form action="index.php" method="post">
                 <div class="book_delete">
                   <input type="submit" name="submit_book_delete" value="削除する"><img src="./images/icon_trash.png" alt="icon trash">
                 </div>
@@ -122,7 +122,7 @@
               <div class="book_title">
                 達人に学ぶDB設計 徹底指南書
               </div>
-              <form action="bookshelf_index.php" method="post">
+              <form action="index.php" method="post">
                 <div class="book_status unread active">
                   <input type="submit" name="submit_book_unread" value="未読">
                 </div>
@@ -133,7 +133,7 @@
                   <input type="submit" name="submit_book_finished" value="既読">
                 </div>
               </form>
-              <form action="bookshelf_index.php" method="post">
+              <form action="index.php" method="post">
                 <div class="book_delete">
                   <input type="submit" name="submit_book_delete" value="削除する"><img src="./images/icon_trash.png" alt="icon trash">
                 </div>
@@ -148,7 +148,7 @@
               <div class="book_title">
                 基礎からのWordpress
               </div>
-              <form action="bookshelf_index.php" method="post">
+              <form action="index.php" method="post">
                 <div class="book_status unread active">
                   <input type="submit" name="submit_book_unread" value="未読">
                 </div>
@@ -159,7 +159,7 @@
                   <input type="submit" name="submit_book_finished" value="既読">
                 </div>
               </form>
-              <form action="bookshelf_index.php" method="post">
+              <form action="index.php" method="post">
                 <div class="book_delete">
                   <input type="submit" name="submit_book_delete" value="削除する"><img src="./images/icon_trash.png" alt="icon trash">
                 </div>
@@ -174,7 +174,7 @@
               <div class="book_title">
                 いきなり はじめるPHP
               </div>
-              <form action="bookshelf_index.php" method="post">
+              <form action="index.php" method="post">
                 <div class="book_status unread active">
                   <input type="submit" name="submit_book_unread" value="未読">
                 </div>
@@ -185,7 +185,7 @@
                   <input type="submit" name="submit_book_finished" value="既読">
                 </div>
               </form>
-              <form action="bookshelf_index.php" method="post">
+              <form action="index.php" method="post">
                 <div class="book_delete">
                   <input type="submit" name="submit_book_delete" value="削除する"><img src="./images/icon_trash.png" alt="icon trash">
                 </div>
