@@ -56,6 +56,7 @@ class BaseModel {
                 'result' => "",
                 'error'  => $error
             );
+
             return $result;
         }
 
@@ -72,7 +73,6 @@ class BaseModel {
             );
 
             return $result;
-
         } else {
         // SELECT文(実行成功時はobjectを返す)
             // SELECTした行数を格納
