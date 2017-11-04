@@ -53,11 +53,12 @@ ln -s $(pwd) /Applications/XAMPP/htdocs/bookshelf
 
 ## DB構築
 
+- データベース、テーブル、テストデータの作成
 ```
 cd sqlファイル位置に移動
 mysql -u **** -p**** < create_table_bookshelf.sql
 ```
-
+- config.phpのUSERNAMEとPASSWORDを設定
 
 ## 動作確認
 - 以下をアドレスバーに入力しアクセス
