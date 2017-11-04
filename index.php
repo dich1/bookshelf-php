@@ -2,13 +2,17 @@
   require_once('config.php');
   require_once('Book.php');
 
-  $db = new Book();
+  $book = new Book();
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $db->regist($_POST['book_title']);
+    $book->register($_POST);
     header('Location:http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
   }
-  $records = $db->index();
+
+  $unread = $book->get_unread_count()['result'][0];
+  $reading = $book->get_reading_count()['result'][0];
+  $finished = $book->get_finished_count()['result'][0];
+  $records = $book->index();
 
 ?>
 
@@ -20,14 +24,6 @@
     <link rel="stylesheet" type="text/css" href="bookshelf.css">
   </head>
   <body>
-  <?php 
-    // フォームデータ送受信確認コード（本番時削除）
-    // リダイレクト処理をコメントアウトする
-    print '<div style="background-color: skyblue;">';
-    print '<p>デバッグ用:</p>';
-    var_dump($_POST['book_title']);
-    print '</div>';
-  ?>
     <header>
       <div id="header">
         <div id="logo">
@@ -43,15 +39,15 @@
       <form action="index.php" method="post">
         <div class="book_status unread active">
           <input type="submit" name="submit_only_unread" value="未読">
-          <div class="book_count"></div>
+          <div class="book_count"><?= $unread['count']; ?></div>
         </div>
         <div class="book_status reading active">
           <input type="submit" name="submit_only_reading" value="読書中">
-          <div class="book_count">23</div>
+          <div class="book_count"><?= $reading['count']; ?></div>
         </div>
         <div class="book_status finished active">
           <input type="submit" name="submit_only_finished" value="既読">
-          <div class="book_count">14</div>
+          <div class="book_count"><?= $finished['count']; ?></div>
         </div>
       </form>
     </div>

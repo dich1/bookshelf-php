@@ -18,9 +18,9 @@
     </header>
     <div class="wrapper">
       <div id="main">
-        <form action="index.php" method="POST" class="form_book" enctype="multipart/form-data" required>
+        <form action="index.php" method="POST" class="form_book" enctype="multipart/form-data">
           <div class="book_title">
-            <input type="text" name="book_title" placeholder="書籍タイトルを入力">
+            <input type="text" name="book_title" placeholder="書籍タイトルを入力" required>
           </div>
           <div class="book_image">
             <input type="file" name="book_image">

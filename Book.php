@@ -11,39 +11,95 @@ class Book extends BaseModel {
      */
     function index() {
         
-        $records = $this->getList();
+        $records = $this->get_list();
 
         return $records;
     }
 
     /**
-     * データを1件登録する
+     * 1件登録する
      *
      * @param string $input_value フォーム入力した値
      * @return array インサート文実行結果
      */
-    function regist($input_value) {
+    function register($input_value) {
 
-        $input_title = $this->escape($input_value);
+        if ($input_value['submit_add_book']) {
 
-        $sql = "INSERT INTO bookshelf.books (book_title) VALUES ('$input_title')";
+            $input_title = $this->escape($input_value['book_title']);
 
-        $insert_result = $this->query($sql);
+            // 画像をアップロードフォルダに移動
+            $file_name = $_FILES['book_image']['name'];
+            $image_path = './uploads/' . $file_name;
+            move_uploaded_file($_FILES['book_image']['tmp_name'], $image_path);
 
-        return $insert_result;
+            $sql = "INSERT INTO 
+                        bookshelf.books (title, image, status) 
+                    VALUES 
+                        ('$input_title', '$image_path', 'unread')";
+
+            return $this->query($sql);
+        }
     }
 
     /**
-     * データの一覧を取得
+     * 一覧を取得
      *
      * @return array セレクト文実行結果
      */
-    function getList() {
+    function get_list() {
 
-        $sql = "SELECT * FROM books ORDER BY created_at DESC";
+        $sql = "SELECT * 
+                  FROM books 
+              ORDER BY created_at 
+                  DESC"
+                     ;
 
-        $select_result = $this->query($sql);
-
-        return $select_result;
+        return $this->query($sql);
     }
+
+    /**
+     * 未読数を取得
+     *
+     * @return array セレクト文実行結果
+     */
+    function get_unread_count() {
+
+        $sql = 'SELECT COUNT(*) as count 
+                  FROM books 
+                 WHERE status = "unread"'
+                     ;
+        
+        return $this->query($sql);
+    }
+
+    /**
+     * 読書中数を取得
+     *
+     * @return array セレクト文実行結果
+     */
+    function get_reading_count() {
+
+        $sql = 'SELECT COUNT(*) as count 
+                  FROM books 
+                 WHERE status = "reading"'
+                     ;
+        
+        return $this->query($sql);
+    }
+
+    /**
+     * 既読数を取得
+     *
+     * @return array セレクト文実行結果
+     */
+    function get_finished_count() {
+
+        $sql = 'SELECT COUNT(*) as count 
+                  FROM books 
+                 WHERE status = "finished"'
+                     ;
+        
+        return $this->query($sql);
+    }    
 }

@@ -10,7 +10,7 @@ class BaseModel {
      * DBインスタンスを生成するコンストラクタ
      */
     function __construct() {
-        $this->initDB();
+        $this->init_db();
     }
 
     /**
@@ -23,7 +23,7 @@ class BaseModel {
     /**
      * データベースオブジェクトを作成
      */
-    function initDB() {
+    function init_db() {
         // DB接続
         $this->db = new mysqli(HOST, USERNAME, PASSWORD, DB_NAME);
         if ($this->db->connect_error) {
