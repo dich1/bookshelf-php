@@ -52,7 +52,6 @@ ln -s $(pwd) /Applications/XAMPP/htdocs/bookshelf
 ```
 
 ## DB構築
-
 - データベース、テーブル、テストデータの作成
 ```
 cd sqlファイル位置に移動
