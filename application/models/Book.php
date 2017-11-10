@@ -1,21 +1,9 @@
 <?php 
 
-require_once('BaseModel.php');
+require_once(dirname(__FILE__) . "/BaseModel.php");
 
 class Book extends BaseModel {
     
-    /**
-     * トップを初期表示
-     *
-     * @return array 画面に表示するデータ群
-     */
-    function index() {
-        
-        $records = $this->get_list();
-
-        return $records;
-    }
-
     /**
      * 1件登録する
      *

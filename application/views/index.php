@@ -21,16 +21,16 @@
   <head>
     <meta charset="utf-8">
     <title>Bookshelf | ほんだな</title>
-    <link rel="stylesheet" type="text/css" href="bookshelf.css">
+    <link rel="stylesheet" type="text/css" href="../../public/bookshelf.css">
   </head>
   <body>
     <header>
       <div id="header">
         <div id="logo">
-          <a href="./index.php"><img src="./images/logo.png" alt="Bookshelf"></a>
+          <a href="./index.php"><img src="../../public/images/logo.png" alt="Bookshelf"></a>
         </div>
         <nav>
-          <a href="./form.php"><img src="./images/icon_plus.png" alt="">書籍登録</a>
+          <a href="./form.php"><img src="../../public/images/icon_plus.png" alt="">書籍登録</a>
         </nav>
       </div>
     </header>
@@ -77,7 +77,7 @@
               </form>
               <form action="index.php" method="post">
                 <div class="book_delete">
-                  <input type="submit" name="submit_book_delete" value="削除する"><img src="./images/icon_trash.png" alt="icon trash">
+                  <input type="submit" name="submit_book_delete" value="削除する"><img src="../../public/images/icon_trash.png" alt="icon trash">
                 </div>
               </form>
             </div>
