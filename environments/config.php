@@ -2,8 +2,8 @@
 
 define('HOST', 'localhost');
 
-define('USERNAME', '****');
+define('USERNAME', 'root');
 
-define('PASSWORD', '****');
+define('PASSWORD', 'root');
 
 define('DB_NAME', 'bookshelf');
