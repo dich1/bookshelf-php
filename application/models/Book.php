@@ -10,7 +10,7 @@ class Book extends BaseModel {
      * @param string $input_value フォーム入力した値
      * @return array インサート文実行結果
      */
-    function register($input_value) {
+    public function register($input_value) {
 
         if ($input_value['submit_add_book']) {
 
@@ -35,7 +35,7 @@ class Book extends BaseModel {
      *
      * @return array セレクト文実行結果
      */
-    function get_list() {
+    public function get_list() {
 
         $sql = "SELECT * 
                   FROM books 
@@ -51,7 +51,7 @@ class Book extends BaseModel {
      *
      * @return array セレクト文実行結果
      */
-    function get_unread_count() {
+    public function get_unread_count() {
 
         $sql = 'SELECT COUNT(*) as count 
                   FROM books 
@@ -66,7 +66,7 @@ class Book extends BaseModel {
      *
      * @return array セレクト文実行結果
      */
-    function get_reading_count() {
+    public function get_reading_count() {
 
         $sql = 'SELECT COUNT(*) as count 
                   FROM books 
@@ -81,7 +81,7 @@ class Book extends BaseModel {
      *
      * @return array セレクト文実行結果
      */
-    function get_finished_count() {
+    public function get_finished_count() {
 
         $sql = 'SELECT COUNT(*) as count 
                   FROM books 

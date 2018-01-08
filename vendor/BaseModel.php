@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * 基点モデルクラス
+ *
+ * DBアクセス時の共通処理を扱うクラス
+ * 
+ * @category Base
+ * @package Model
+ */
 class BaseModel {
     // databaseオブジェクト
     protected $db;
@@ -9,21 +17,21 @@ class BaseModel {
     /**
      * DBインスタンスを生成するコンストラクタ
      */
-    function __construct() {
+    public function __construct() {
         $this->init_db();
     }
 
     /**
      * DB接続を終了するデストラクタ
      */
-    function __destruct() {
+    public function __destruct() {
         $this->db->close();
     }
 
     /**
      * データベースオブジェクトを作成
      */
-    function init_db() {
+    protected function init_db() {
         // DB接続
         $this->db = new mysqli(HOST, USERNAME, PASSWORD, DB_NAME);
         if ($this->db->connect_error) {
@@ -41,7 +49,7 @@ class BaseModel {
      * @param string $sql クエリ文字列
      * @param array 実行結果
      */
-    function query($sql) {
+    protected function query($sql) {
         // SQL実行
         $query_result = $this->db->query($sql);
 
@@ -100,7 +108,7 @@ class BaseModel {
      * 
      * @return string エスケープ後の文字列
      */
-    function escape($string) {
+    protected function escape($string) {
         return $this->db->real_escape_string($string);
     }
 }
