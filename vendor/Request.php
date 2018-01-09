@@ -11,46 +11,66 @@
 class Request {
 
     // GET
-    private $query;
+    private $_query;
     // POST
-    private $post;
+    private $_post;
+    // URL
+    private $_param;
 
 	public function __construct(argument) {
-        $this->query = new QueryString();
-        $this->post = new Post();
+        $this->_query = new QueryString();
+        $this->_post = new Post();
+        $this->_param = new UrlParameter();
 	}
 
     /**
      * POSTを取得
      *
-     + @param string $key
-     * @return array|string
+     * @param string $key キー名
+     * @return string POST値
      */
     public function getPost($key = NULL) {
         if (is_null($key)) {
-            return $this->post->get();
+            return $this->_post->get();
         }
-        if (!$this->post->has($key)) {
+        if (!$this->_post->has($key)) {
             return NULL
         }
 
-        return $this->post->get();
+        return $this->_post->get($key);
     }
 
     /**
      * GETを取得
      *
-     + @param string $key
-     * @return array|string
+     * @param string $key キー名
+     * @return string GET値
      */
     public function getQuery($key = NULL) {
         if (is_null($key)) {
-            return $this->post;
+            return $this->_post;
         }
-        if (!$this->query->has($key)) {
+        if (!$this->_query->has($key)) {
             return NULL;
         }
 
-        return $this->query->get;
+        return $this->_query->get($key);
+    }
+
+    /**
+     * URLパラメータを取得
+     *
+     * @param string $key キー名
+     * @return string URLパラメータ値
+     */
+    public function getParam($key = NULL) {
+        if (is_null($key)) {
+            return $this->_param->get();
+        }
+        if (!$this->_param->has($key)) {
+            return NULL
+        }
+
+        return $this->_param->get($key);
     }
 }

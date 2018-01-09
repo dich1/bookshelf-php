@@ -23,10 +23,10 @@ abstract class RequestVariables {
     /**
      * リクエストの値を取得
      * 
-     * @param string $get 
-     * @return array|string
+     * @param string $key キー名
+     * @return array|string リクエスト値
      */
-    public function get($get = NULL) {
+    public function get($key = NULL) {
         $return_value = NULL;
 
         if (is_null($key)) {
@@ -40,12 +40,12 @@ abstract class RequestVariables {
     }
 
     /**
-     * リクエストの値が存在するか確認
+     * リクエスト情報が存在するか確認
      * 
-     * @param string $get
-     * @return boolean
+     * @param string $key キー名
+     * @return boolean TRUE:リクエスト情報有 FALSE:リクエスト情報無
      */
-    public function has($get = NULL) {
+    public function has($key = NULL) {
         if (array_key_exists($key, $this->_values)) {
             return FALSE;
         }
